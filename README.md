@@ -1,26 +1,23 @@
-# AgriScan: Offline-First Plant Disease Detection 🌱
+# AgriScan: Edge AI Disease Detection System 🌿📱
 
-![Status](https://img.shields.io/badge/Status-In%20Development-yellow) ![Python](https://img.shields.io/badge/Python-3.10-blue) ![Edge AI](https://img.shields.io/badge/Edge-ONNX-green)
+![Status](https://img.shields.io/badge/Status-Research%20Prototype-orange) ![Focus](https://img.shields.io/badge/Focus-Edge%20Computing-blue) ![Model](https://img.shields.io/badge/Model-MobileNet%20%7C%20ONNX-green)
 
-AgriScan is an edge-computing solution designed to detect plant diseases (Potato Early/Late Blight) on low-end Android devices without internet connectivity.
+> **⚠️ Project Status:** This repository is the clean implementation of the AgriScan research. It is currently being populated with the V2 codebase, moving from cloud-based VGG16 models to offline-first MobileNetV3 architectures optimized for Android.
 
-## 🏗️ Architecture (In Progress)
-The system follows a hybrid edge-cloud architecture:
-1.  **Training:** ResNet18/MobileNetV3 trained on PyTorch.
-2.  **Optimization:** FP32 models converted to **INT8** via ONNX Runtime for 4x compression.
-3.  **Inference:** Running locally on CPU (Android/WebAssembly).
+## 📋 The Problem
+Farmers in rural India lack internet connectivity. Cloud-based AI APIs fail in these regions. AgriScan solves this by moving the inference **to the edge** (On-Device).
 
-## 🛠️ Tech Stack
-* **Core:** PyTorch, OpenCV
-* **Edge Inference:** ONNX Runtime
-* **Backend:** FastAPI (Model Registry)
-* **Deployment:** Docker
+## 🏗️ Architecture
+1.  **Training:** PyTorch (ResNet/MobileNet)
+2.  **Optimization:** ONNX Quantization (FP32 -> INT8)
+3.  **Inference:** ONNX Runtime (CPU)
+
+## 📂 Repository Structure
+* `/models` - Optimized ONNX model weights.
+* `/notebooks` - Research and training experiments.
+* `/src` - FastAPI backend for model registry.
 
 ## 🚀 Roadmap
-- [x] Train baseline ResNet models for Potato/Chicken disease.
-- [ ] Implement ONNX Quantization pipeline.
-- [ ] Build FastAPI backend for model versioning.
-- [ ] Deploy client-side inference (Next.js/PWA).
-
----
-*Note: This repository is currently under active development. Some modules are being migrated from local research notebooks.*
+- [x] Train baseline models for Poultry/Potato disease.
+- [ ] Implement quantization pipeline.
+- [ ] Deploy offline PWA.
